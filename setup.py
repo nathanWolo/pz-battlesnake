@@ -24,6 +24,7 @@ class build_battlesnake(build_ext):
 
         # Build go modules
         ext_path = f"../{self.get_ext_fullpath(ext.name)}/../bin/battlesnake"
+        print(ext_path)
         cmd = ["go", "build", "-buildmode=c-shared", "-o", ext_path]
         cmd += ext.sources
 
@@ -44,7 +45,7 @@ setup(
     author="DaBultz",
     url="https://github.com/DaBultz/pz-battlesnake",
     py_modules=["pz_battlesnake"],
-    packages=["pz_battlesnake", "pz_battlesnake.env", "pz_battlesnake.spaces"],
+    packages=["pz_battlesnake", "pz_battlesnake.env", "pz_battlesnake.spaces", "pz_battlesnake.types"],
     python_requires=">=3.7, <=3.11",
     install_requires=["PettingZoo>=1.18"],
     ext_modules=[
